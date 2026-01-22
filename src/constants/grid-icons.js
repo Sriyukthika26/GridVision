@@ -5,7 +5,7 @@ export const SVGS = {
     'icon-compensator': `<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="80" height="80" fill="white" stroke="black" stroke-width="8"/><line x1="10" y1="90" x2="90" y2="10" stroke="black" stroke-width="6"/><path d="M70 15 L90 10 L85 30" fill="none" stroke="black" stroke-width="5"/></svg>`,
 };
 
-// Helper to convert SVG string to Image for MapLibre
+// convert SVG string to Image for MapLibre
 export const loadSvgIcon = (map, name, svgString) => {
     return new Promise((resolve) => {
         const img = new Image(100, 100);

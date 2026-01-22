@@ -2,8 +2,6 @@ import React, { useRef, useEffect, useState } from 'react';
 import maplibregl from 'maplibre-gl';
 import { Protocol } from 'pmtiles';
 import 'maplibre-gl/dist/maplibre-gl.css';
-
-// Import our modular logic
 import { SVGS, loadSvgIcon } from '../constants/grid-icons';
 import { addMapLayers, applyFilters } from '../constants/map-layers';
 
@@ -13,7 +11,7 @@ const GridMap = ({ filters, onMapLoad }) => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        if (map.current) return; // Initialize only once
+        if (map.current) return; 
 
         const protocol = new Protocol();
         maplibregl.addProtocol('pmtiles', protocol.tile);
@@ -50,7 +48,7 @@ const GridMap = ({ filters, onMapLoad }) => {
                 loadSvgIcon(map.current, 'icon-compensator', SVGS['icon-compensator'])
             ]);
 
-            // 2. Add Layers (using our imported helper)
+            // 2. Add Layers 
             addMapLayers(map.current);
 
             // 3. Setup Interactions (Popups)
@@ -58,13 +56,11 @@ const GridMap = ({ filters, onMapLoad }) => {
 
             setIsLoaded(true);
             
-            // Notify parent that map is ready (e.g. for SearchBox)
             if (onMapLoad) onMapLoad(map.current);
         });
 
     }, []);
 
-    // Watch for filter changes
     useEffect(() => {
         if (isLoaded && map.current) {
             applyFilters(map.current, filters);
@@ -74,7 +70,7 @@ const GridMap = ({ filters, onMapLoad }) => {
     return <div ref={mapContainer} style={{ width: '100%', height: '100%' }} />;
 };
 
-// Helper for Popups (kept internal as it depends on DOM events)
+// Helper for Popups 
 function setupInteractions(map) {
     const clickableLayers = ['power-lines', 'cables', 'busbars', 'substations', 'substations-fill', 'towers', 'monopoles', 'transformers', 'compensators', 'switches'];
 

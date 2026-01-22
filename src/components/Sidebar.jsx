@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SVGS } from '../constants/grid-icons'; // Import SVG strings to show in legend
+import { SVGS } from '../constants/grid-icons';
 
 const Sidebar = ({ filters, setFilters }) => {
     const [sections, setSections] = useState({ voltages: true, infra: true, equip: true });

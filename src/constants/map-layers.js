@@ -1,4 +1,4 @@
-// HELPER: Adds all the visual layers to the map
+// Adds visual layers to the map
 export function addMapLayers(map) {
     // 1. Substation Background (Grey Area)
     map.addLayer({
@@ -36,7 +36,7 @@ export function addMapLayers(map) {
         }
     });
 
-    // 3. Power Lines (with Offset Hack)
+    // 3. Power Lines 
     map.addLayer({
         id: 'power-lines',
         type: 'line',
@@ -86,7 +86,7 @@ export function addMapLayers(map) {
         paint: { 'circle-radius': 2.5, 'circle-color': '#444', 'circle-stroke-width': 1, 'circle-stroke-color': '#fff' }
     });
 
-    // 7. Icon Layers (Defined in a loop for cleanliness)
+    // 7. Icon Layers 
     const iconLayers = [
         { id: 'transformers', filter: 'Transformer', icon: 'icon-transformer', size: 0.35, minz: 11 },
         { id: 'compensators', filter: 'Compensator', icon: 'icon-compensator', size: 0.35, minz: 11 },
@@ -112,7 +112,7 @@ export function addMapLayers(map) {
     });
 }
 
-// HELPER: Applies the Sidebar filters to the map layers
+// Applies the Sidebar filters to the map layers
 export function applyFilters(map, filters) {
     const voltageFilter = ['any'];
     const knownVoltages = ['765', '400', '220', '132', '110', '66'];
