@@ -10,8 +10,7 @@ def main():
         # ---------------------------------------------------------
         # STAGE 5: BUILD GRAPH VERTICES
         # ---------------------------------------------------------
-        # We find every unique point where lines start or end.
-        # These become the "Nodes" of our graph.
+        # "Nodes" of the graph: Every unique point where lines start or end.
         
         config.run_step(conn, "S5: Resetting Topology Tables", """
             DROP TABLE IF EXISTS gridkit_vertices, gridkit_vertex_degree, transformer_vertices CASCADE;

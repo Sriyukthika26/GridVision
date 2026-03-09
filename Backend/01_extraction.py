@@ -79,7 +79,6 @@ def main():
             CREATE INDEX idx_links_geom ON gridkit_links USING GIST(geom);
         """)
 
-        # Force the database to update statistics immediately
         config.run_step(conn, "Updating Statistics", """
             ANALYZE gridkit_nodes;
             ANALYZE gridkit_towers;
@@ -139,7 +138,7 @@ def main():
         """)
 
         # ---------------------------------------------------------
-        # STAGE 4: SNAPPING (CRITICAL LOGIC RESTORED)
+        # STAGE 4: SNAPPING
         # ---------------------------------------------------------
         print("\n>>> S4: Batched Snapping (Nodes & Towers)")
         max_id = conn.execute(text("SELECT MAX(id) FROM gridkit_links")).scalar()

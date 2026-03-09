@@ -29,7 +29,7 @@ def main():
             -- 1. Create the spatial index
             CREATE INDEX idx_v_grid_final_geom ON v_grid_final USING GIST(geom);
             
-            -- 2. FORCE REGISTRATION: This makes it visible to pg_tileserv's metadata crawler
+            -- 2. REGISTRATION: visible to pg_tileserv's metadata crawler
             SELECT populate_geometry_columns('public.v_grid_final'::regclass);
         """)
         # ---------------------------------------------------------
